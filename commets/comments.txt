@@ -1,0 +1,3 @@
+Update or Delete Campgrounds
+
+If your not the owner of the camp you cannot Update or Delete

@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+<div class="container">
+    <header class="jumbotron">
+        <h1>Bienvenido a El Campamento de Lazlo </h1>
+        <p>Elige tu campamento preferido</p>
+        <p>
+            <a href="/campground/new" class="btn btn-primary">Add a new CAMP!!!</a>
+        </p>
+    </header>
+
+    <div class="row">
+        <% for(let i in campgrounds){ %>
+            <div class="col-md-4 col-sm-6">
+                <h4><%= campgrounds[i].name %></h4>
+                <img src="<%= campgrounds[i].imagenes %>" class="img-thumbnail">
+                <p><%= campgrounds[i].description.substring(0,100) %>...</p>
+                <a href="/campground/<%= campgrounds[i]._id %>" class="btn btn-primary">More info</a>
+            </div>
+        <% } %>
+    </div>
+
+</div>
+<% include ../partials/footer %>
