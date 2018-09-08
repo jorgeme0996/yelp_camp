@@ -8,7 +8,6 @@ var     express        = require("express"),
         Campground     = require("./models/campgroud"),
         Comment        = require("./models/commets"),
         User           = require("./models/user"),
-        port           = 4000,
         flash          = require("connect-flash"),
         seedDB         = require("./seeds");
 
@@ -17,7 +16,9 @@ var commetRoutes        = require("./routes/comments"),
     indexRoutes         = require("./routes/index")
 
 //seedDB();
-mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true }); // Conectas a la base de datos
+//mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true }); // Conectas a la base de datos
+mongoose.connect("mongodb://jorge:jorge007@ds249942.mlab.com:49942/campamentos", { useNewUrlParser: true }); // Conectas a la base de datos
+//mongodb://jorge:jorge007@ds249942.mlab.com:49942/campamentos
 app.use(bodyParser.urlencoded({extended:true})); // configuras el paser
 app.set("view engine", "ejs"); // configuras las vistas de ejs
 app.use(express.static(__dirname + "/public")); // configuras las stylesheets
@@ -54,6 +55,6 @@ app.use(campgroundRoutes);
 app.use(commetRoutes);
 
 
-app.listen(port, function(){
-    console.log("Servidor en el puerto: " + port);
+app.listen(process.env.PORT,process.env.IP, function(){
+    console.log("Esta vivo!!!! ");
 });
